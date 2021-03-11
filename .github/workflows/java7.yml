@@ -22,6 +22,7 @@ jobs:
       uses: actions/setup-java@implement-v2-tests
       with:
         java-version: 7.0.${{ matrix.update }}
+        distribution: zulu
     - name: java -version
       run: java -version
 
