@@ -4,16 +4,13 @@ on:
   push:
     paths:
       - '*/*/java7.yml'
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '25 */3 * * *'
 
 jobs:
   java7:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016]
+        os: [ubuntu-18.04, windows-2019]
         update: [x, 292, 282, 272, 262, 252, 242, 232, 222, 211, 201, 191, 181, 171, 161, 154, 141, 131, 121, 111, 101, 95]
       fail-fast: false
       max-parallel: 5
@@ -22,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@implement-v2-tests
       with:
         java-version: 7.0.${{ matrix.update }}
     - name: java -version
@@ -41,8 +38,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@implement-v2-tests
       with:
         java-version: 7.0.${{ matrix.update }}
+        distribution: zulu
     - name: java -version
       run: java -version

@@ -1,9 +1,6 @@
 name: Zing_Latest_JDK
 
 on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '35 2 * * *'
   push:
     paths:
       - '.github/workflows/zingJdkTest.yml'
@@ -23,9 +20,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK
-      uses: zing-actions/setup-java@v1
+      uses: zing-actions/setup-java@implement-v2-tests
       with:
         java-version: ${{ matrix.version }}
+        distribution: zulu
     - name: java -version
       run: java -version
       
