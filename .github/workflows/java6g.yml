@@ -1,9 +1,6 @@
 name: Java6g
 
-on:
-  push:
-    paths:
-      - '*/*/java6g.yml'
+on: [ push ]
 
 jobs:
   java6:

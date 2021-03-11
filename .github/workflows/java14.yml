@@ -1,9 +1,6 @@
 name: Java14
 
-on:
-  push:
-    paths:
-      - '*/*/java14.yml'
+on: [ push ]
       
 jobs:
   java14:

@@ -1,9 +1,6 @@
 name: JavaLatest
 
-on:
-  push:
-    paths:
-      - '*/*/javaLatest.yml'
+on: [ push ]
       
 jobs:
   javaLatest:

@@ -1,9 +1,6 @@
 name: probe
 
-on:
-  push:
-    paths:
-      - '.github/workflows/probe.yml'
+on: [ push ]
 
 jobs:
   java:

@@ -1,9 +1,6 @@
 name: Java17
 
-on:
-  push:
-    paths:
-      - '*/*/java17.yml'
+on: [ push ]
       
 jobs:
   java16:

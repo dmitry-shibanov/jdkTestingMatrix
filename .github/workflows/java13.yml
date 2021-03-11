@@ -1,9 +1,6 @@
 name: Java13
 
-on:
-  push:
-    paths:
-      - '*/*/java13.yml'
+on: [ push ]
       
 jobs:
   java13:

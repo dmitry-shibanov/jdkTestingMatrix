@@ -1,9 +1,6 @@
 name: Java8
 
-on:
-  push:
-    paths:
-      - '.github/workflows/java8.yml'
+on: [ push ]
 
 jobs:
   java8-jdk:

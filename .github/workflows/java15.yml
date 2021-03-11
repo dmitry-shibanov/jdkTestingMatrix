@@ -1,9 +1,6 @@
 name: Java15
 
-on:
-  push:
-    paths:
-      - '*/*/java15.yml'
+on: [ push ]
       
 jobs:
   java15:

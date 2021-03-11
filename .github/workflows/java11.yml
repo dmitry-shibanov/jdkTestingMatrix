@@ -1,9 +1,6 @@
 name: Java11
 
-on:
-  push:
-    paths:
-      - '*/*/java11.yml'
+on: [ push ]
 jobs:
   java11:
     # internal comment counter: 100

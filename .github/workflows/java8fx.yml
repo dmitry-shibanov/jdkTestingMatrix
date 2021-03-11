@@ -1,9 +1,6 @@
 name: Java8fx
 
-on:
-  push:
-    paths:
-      - '.github/workflows/java8fx.yml'
+on: [ push ]
 
 jobs:
   java8fx:

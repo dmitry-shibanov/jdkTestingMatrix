@@ -1,9 +1,6 @@
 name: Java9
 
-on:
-  push:
-    paths:
-      - '*/*/java9.yml'
+on: [ push ]
 
 jobs:
   java9:

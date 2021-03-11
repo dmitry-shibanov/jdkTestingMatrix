@@ -1,9 +1,6 @@
 name: Latest_JDK_Updates
 
-on:
-  push:
-    paths:
-      - '.github/workflows/latestJdkUpdates.yml'
+on: [ push ]
 
 jobs:
   java:

@@ -1,9 +1,6 @@
 name: Java12
 
-on:
-  push:
-    paths:
-      - '*/*/java12.yml'
+on: [ push ]
 
 jobs:
   java12:

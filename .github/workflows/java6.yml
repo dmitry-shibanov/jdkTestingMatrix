@@ -1,10 +1,7 @@
 
 name: Java6
 
-on:
-  push:
-    paths:
-      - '*/*/java6.yml'
+on: [ push ]
       
 jobs:
   java6:
