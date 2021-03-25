@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK
-      uses: actions/setup-java@implement-v2-tests
+      uses: maxim-lobanov/setup-java@v2-preview
       with:
         java-version: 8.0.${{ matrix.update }}
         distribution: zulu
@@ -40,7 +40,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK
-      uses: actions/setup-java@implement-v2-tests
+      uses: maxim-lobanov/setup-java@v2-preview
       with:
         java-version: 8.0.${{ matrix.update }}
         distribution: zulu
@@ -61,7 +61,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK
-      uses: actions/setup-java@implement-v2-tests
+      uses: maxim-lobanov/setup-java@v2-preview
       with:
         java-package: jre
         java-version: 8.0.${{ matrix.update }}
