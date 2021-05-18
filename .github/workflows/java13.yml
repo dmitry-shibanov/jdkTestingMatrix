@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up ${{ matrix.package }}
-      uses: maxim-lobanov/setup-java@v2-preview
+      uses: actions/setup-java@v2.1.0
       with:
         java-package: ${{ matrix.package }}
         java-version: 13.0.${{ matrix.update }}
