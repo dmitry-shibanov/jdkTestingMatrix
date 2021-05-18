@@ -10,12 +10,13 @@ jobs:
       matrix:
         os: [ubuntu-18.04, windows-2019]
         update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
+        distribution: ['adopt-hotspot', 'adopt-openj9']
         exclude:
           - os: ubuntu-18.04
             update: 101
       fail-fast: false
       max-parallel: 6
-    name: JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}
+    name: JDK 8.0.${{ matrix.update }}, ${{ matrix.os }} ${{ matrix.distribution }}
 
     steps:
     - uses: actions/checkout@v1
@@ -23,7 +24,7 @@ jobs:
       uses: actions/setup-java@v2.1.0
       with:
         java-version: 8.0.${{ matrix.update }}
-        distribution: zulu
+        distribution: ${{ matrix.distribution }}
     - name: java -version
       run: java -version
       
@@ -32,10 +33,11 @@ jobs:
     strategy:
       matrix:
         os: [macOS-latest]
+        distribution: ['adopt-hotspot', 'adopt-openj9']
         update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 92, 91, 72, 71, 66, 65, 60, 51, 45, 31, 25, 20, 11]
       fail-fast: false
       max-parallel: 5
-    name: Mac-JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}
+    name: Mac-JDK 8.0.${{ matrix.update }}, ${{ matrix.os }} ${{ matrix.distribution }}
 
     steps:
     - uses: actions/checkout@v1
@@ -43,7 +45,7 @@ jobs:
       uses: actions/setup-java@v2.1.0
       with:
         java-version: 8.0.${{ matrix.update }}
-        distribution: zulu
+        distribution: ${{ matrix.distribution }}
     - name: java -version
       run: java -version
 
@@ -53,10 +55,11 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-18.04, windows-2019, macOS-latest]
+        distribution: ['adopt-hotspot', 'adopt-openj9']
         update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212]
       fail-fast: false
       max-parallel: 6
-    name: JRE 8.0.${{ matrix.update }}, ${{ matrix.os }}
+    name: JRE 8.0.${{ matrix.update }}, ${{ matrix.os }} ${{ matrix.distribution }}
 
     steps:
     - uses: actions/checkout@v1
@@ -65,6 +68,6 @@ jobs:
       with:
         java-package: jre
         java-version: 8.0.${{ matrix.update }}
-        distribution: zulu
+        distribution: ${{ matrix.distribution }}
     - name: java -version
       run: java -version

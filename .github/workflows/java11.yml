@@ -8,6 +8,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-18.04, macOS-latest, windows-2019]
+        distribution: ['adopt-hotspot', 'adopt-openj9']
         update: [x, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
         package: [jdk, jre]
         exclude:
@@ -15,7 +16,7 @@ jobs:
           - {package: jre, update: 2}
       fail-fast: false
       max-parallel: 5
-    name: ${{ matrix.package }} 11.0.${{ matrix.update }}, ${{ matrix.os }}
+    name: ${{ matrix.package }} 11.0.${{ matrix.update }}, ${{ matrix.os }} ${{ matrix.distribution }}
 
     steps:
     - uses: actions/checkout@v1
@@ -24,6 +25,6 @@ jobs:
       with:
         java-package: ${{ matrix.package }}
         java-version: 11.0.${{ matrix.update }}
-        distribution: zulu
+        distribution: ${{ matrix.distribution }}
     - name: java -version
       run: java -version

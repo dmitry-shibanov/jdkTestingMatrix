@@ -10,13 +10,14 @@ jobs:
       matrix:
         os: [ubuntu-18.04, macOS-latest, windows-2019]
         update: [15, 15.0.2, 15.0.1, 15.0.0, 15-ea, 15.0.0-ea.2]
+        distribution: ['adopt-hotspot', 'adopt-openj9']
         package: [jdk, jre]
         exclude:
           - {update: 15.0.0-ea.2, package: jre}
           - {update: 15-ea, package: jre}
       fail-fast: false
       max-parallel: 6
-    name: ${{ matrix.package }} ${{ matrix.update }}, ${{ matrix.os }}
+    name: ${{ matrix.package }} ${{ matrix.update }}, ${{ matrix.os }} ${{ matrix.distribution }}
 
     steps:
     - uses: actions/checkout@v1
@@ -25,6 +26,6 @@ jobs:
       with:
         java-package: ${{ matrix.package }}
         java-version: ${{ matrix.update }}
-        distribution: zulu
+        distribution: ${{ matrix.distribution }}
     - name: java -version
       run: java -version
